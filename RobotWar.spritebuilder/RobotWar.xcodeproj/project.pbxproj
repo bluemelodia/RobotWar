@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59974C3B1965CEA400D6C89A /* GeniusRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 59974C3A1965CEA400D6C89A /* GeniusRobot.m */; };
 		6236628E19612C5500ECB220 /* AdvancedRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7636F7195BBCAA0070222B /* AdvancedRobot.m */; };
 		6244629A1937DDD300895F2D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 624462991937DDD300895F2D /* Robot.m */; };
 		629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 629FCFF3193E71C300896E8C /* GameOverScene.m */; };
@@ -64,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		59974C391965CEA400D6C89A /* GeniusRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeniusRobot.h; path = Source/GeniusRobot.h; sourceTree = "<group>"; };
+		59974C3A1965CEA400D6C89A /* GeniusRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeniusRobot.m; path = Source/GeniusRobot.m; sourceTree = "<group>"; };
 		624462981937DDD300895F2D /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = Source/Robot.h; sourceTree = "<group>"; };
 		624462991937DDD300895F2D /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = Source/Robot.m; sourceTree = "<group>"; };
 		624A3880193E79620054705C /* Robot_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Robot_Framework.h; path = Source/Robot_Framework.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				65CC9158196141CF00838899 /* TurretRobot.h */,
 				65CC9159196141CF00838899 /* TurretRobot.m */,
 				BC7636F6195BBCAA0070222B /* AdvancedRobot.h */,
+				59974C391965CEA400D6C89A /* GeniusRobot.h */,
+				59974C3A1965CEA400D6C89A /* GeniusRobot.m */,
 				BC7636F7195BBCAA0070222B /* AdvancedRobot.m */,
 				BC7636F8195BBCAA0070222B /* SimpleRobot.h */,
 				BC7636F9195BBCAA0070222B /* SimpleRobot.m */,
@@ -389,6 +394,7 @@
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,
 				BC7636FB195BBCAA0070222B /* SimpleRobot.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				59974C3B1965CEA400D6C89A /* GeniusRobot.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				65CC915A196141CF00838899 /* TurretRobot.m in Sources */,

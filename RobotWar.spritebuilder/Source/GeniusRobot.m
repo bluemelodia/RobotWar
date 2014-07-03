@@ -15,9 +15,11 @@ typedef NS_ENUM(NSInteger, RobotState) {
     RobotStateSearching
 };
 
+CGFloat angle; //how to angle your robot's gun
+CGFloat direction; //which direction robot faces
+
 @implementation GeniusRobot {
     RobotState _currentRobotState;
-    
     CGPoint _lastKnownPosition;
     CGFloat _lastKnownPositionTimestamp;
 }
@@ -29,7 +31,7 @@ typedef NS_ENUM(NSInteger, RobotState) {
             if ((self.currentTimestamp - _lastKnownPositionTimestamp) > 1.f) {
                 _currentRobotState = RobotStateSearching;
             } else {
-                CGFloat angle = [self angleBetweenGunHeadingDirectionAndWorldPosition:_lastKnownPosition];
+                angle = [self angleBetweenGunHeadingDirectionAndWorldPosition:_lastKnownPosition];
                 if (angle >= 0) {
                     [self turnGunRight:abs(angle)];
                 } else {
@@ -40,15 +42,45 @@ typedef NS_ENUM(NSInteger, RobotState) {
         }
         
         if (_currentRobotState == RobotStateSearching) {
-            CGFloat angle = CCRANDOM_0_1()*90;
             //[self angleBetweenGunHeadingDirectionAndWorldPosition:_lastKnownPosition];
-            if (angle >= 0) {
-                [self turnGunRight:abs(angle)];
-                [self shoot];
-            } else {
-                [self turnGunLeft:abs(angle)];
-                [self shoot];
+            NSInteger sweep = 5;
+            if (direction == 1) { //hit back
+                if (angle > 270 || angle < 90) {
+                    angle = 180;
+                }
+                if (90 < angle < 180) {
+                    [self turnGunRight:angle+sweep];
+                    sweep +=5;
+                    [self shoot];
+                }
+                else if (180 < angle < 270) {
+                    [self turnGunLeft:angle-sweep];
+                    sweep += 5;
+                    [self shoot];
+                }
+                
             }
+            else if (direction == 0) { //hit front
+                if (angle < 270 || angle > 90) {
+                    angle = 360;
+                }
+                if (270 < angle < 360) {
+                    [self turnGunLeft:angle-sweep];
+                    sweep +=5;
+                    [self shoot];
+                }
+                else if (360 < angle < 90) {
+                    [self turnGunLeft:angle+sweep];
+                    sweep +=5;
+                    [self shoot];
+                }
+            }
+            /*if (angle >= 0) {
+             
+            } else {
+                [self turnGunLeft:angle-sweep++];
+                [self shoot];
+            }*/
         }
         
         if (_currentRobotState == RobotStateDefault) {
@@ -77,9 +109,13 @@ typedef NS_ENUM(NSInteger, RobotState) {
     
     if (RobotWallHitDirectionFront) {
         _currentRobotState = RobotStateSearching;
+        angle = 0;
+        direction = 0;
     }
-    else if (RobotWallHitDirectionBack) {
+    else if (RobotWallHitDirectionRear) {
         _currentRobotState = RobotStateSearching;
+        angle = 180;
+        direction = 1;
     }
     /* if (_currentRobotState != RobotStateTurnaround) {
         [self cancelActiveAction];

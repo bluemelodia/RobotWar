@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Apportable. All rights reserved.
 //
 
-#import "CCNode.h"
+#import "Robot.h"
 
-@interface GeniusRobot : CCNode
+@interface GeniusRobot:Robot
 
 @end
